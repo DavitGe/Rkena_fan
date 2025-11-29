@@ -1,26 +1,60 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --rkena-red: #d10d25;
+  --rkena-light: #ecedd8;
+  --rkena-black: #000000;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    @apply bg-rkena-black text-rkena-light antialiased overflow-x-hidden;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold uppercase tracking-tighter;
+  }
+  
+  /* Brutalist scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-rkena-black;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-rkena-red;
+    border: 2px solid #000;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .brutalist-border {
+    @apply border-2 border-rkena-light;
+  }
+  
+  .brutalist-button {
+    @apply px-8 py-4 bg-rkena-red text-rkena-light uppercase font-bold text-xl 
+    border-2 border-transparent hover:border-rkena-light hover:bg-rkena-black hover:text-rkena-red transition-all duration-100;
+    box-shadow: 4px 4px 0px var(--rkena-light);
+  }
+
+  .brutalist-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--rkena-light);
+  }
+  
+  .brutalist-card {
+    @apply bg-zinc-900 border-2 border-rkena-red p-4 relative overflow-hidden;
+    box-shadow: 8px 8px 0px var(--rkena-red);
+  }
+
+  .bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  }
 }
