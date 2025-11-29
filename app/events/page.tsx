@@ -102,7 +102,7 @@ export default function EventsPage() {
           <div className="space-y-6 md:space-y-8">
              <div className="border-b-4 border-zinc-800 pb-4">
                 <span className="block text-rkena-red text-lg md:text-xl font-bold mb-2">
-                   {selectedEvent.date} // {selectedEvent.location}
+                   {selectedEvent.date} {"//"} {selectedEvent.location}
                 </span>
                 <p className="text-zinc-400 font-mono text-base md:text-lg leading-relaxed">
                    {selectedEvent.details}

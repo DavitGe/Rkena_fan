@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useRef } from "react";
 
 export default function VideoHero() {
@@ -23,10 +24,12 @@ export default function VideoHero() {
     >
       {/* Image/GIF Background */}
       <div className="absolute inset-0 bg-black">
-        <img
+        <Image
           src="/rkena.webp"
           alt="Background Animation"
-          className="w-full h-full object-cover opacity-60"
+          fill
+          className="object-cover opacity-60"
+          priority
         />
         {/* Overlay gradient/grid */}
         <div className="absolute inset-0 bg-grid-pattern opacity-20 mix-blend-overlay"></div>
